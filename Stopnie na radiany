@@ -1,0 +1,13 @@
+#include <iostream>
+#include <conio.h>
+#include <math.h>
+using namespace std;
+
+int main()
+{
+    double stopnie;
+    cout << "Podaj kat w stopniach: ";
+    cin >> stopnie;
+    double radiany =( stopnie * M_PI ) / 180.0f;
+    cout << "radiany:" << radiany;
+}
