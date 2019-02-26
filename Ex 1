@@ -37,7 +37,9 @@ int main()
         {
             cout << "error, wrong cin";
         }
+
     }
+    while (fabs((xr-xl)/xm) >= tolerance);
 
     return 0;
 }
