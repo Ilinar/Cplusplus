@@ -1,0 +1,36 @@
+#include <iostream>
+#include <math.h>
+#include <iomanip>
+
+using namespace std;
+
+double function(double x)
+{
+    return cos(x) - x;
+}
+
+double derivativefunction(double x)
+{
+    double dx;
+    dx=0,00000001;
+    return (function(x+dx)-function(x))/dx;
+}
+
+int main()
+{
+    double xi, xi2, tmp, tmp2, tolerance, error;
+    xi=0;
+    tolerance=0.00000001;
+    do
+    {
+        xi2 = xi - (function(xi)/derivativefunction(xi));
+        error = fabs((xi2-xi)/xi2);
+        tmp = xi;
+        tmp2 = xi2;
+        xi2 = xi;
+    }
+    while (error <= tolerance);
+
+    cout << tmp2;
+    return 0;
+}
