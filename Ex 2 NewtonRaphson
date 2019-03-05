@@ -12,15 +12,15 @@ double function(double x)
 double derivativefunction(double x)
 {
     double dx;
-    dx=0,00000001;
+    dx = 0.00000001;
     return (function(x+dx)-function(x))/dx;
 }
 
 int main()
 {
     double xi, xi2, tmp, tmp2, tolerance, error;
-    xi=0;
-    tolerance=0.00000001;
+    xi = 0;
+    tolerance = 0.00000001;
     do
     {
         xi2 = xi - (function(xi)/derivativefunction(xi));
@@ -28,6 +28,7 @@ int main()
         tmp = xi;
         tmp2 = xi2;
         xi2 = xi;
+        cout << tmp2;
     }
     while (error <= tolerance);
 
