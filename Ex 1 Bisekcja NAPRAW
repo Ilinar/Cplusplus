@@ -1,0 +1,53 @@
+#include <iostream>
+#include <math.h>
+#include <iomanip>
+
+using namespace std;
+
+double function(double x)
+{
+    return cos(x) - x;
+}
+
+int main()
+{
+    double xl, xr, xm, x0, tolerance;
+    tolerance = 0,00000001;
+
+    cout << "X left = ";
+    cin >> xl;
+
+    cout << "X right = ";
+    cin >> xr;
+
+    if (function(xl) * function(xr) > 0)
+    {
+         cout << "error, wrong cin";
+    }
+    else
+    {
+        do
+        {
+            xm = (xl + xr)/2;
+            cout << "1";
+            if (function(xl) * function(xm) < 0)
+            {
+                xr = xm;
+                cout << "2";
+            }
+            else if (function(xm) * function(xr) < 0)
+            {
+                xl = xm;
+                cout << "3";
+            }
+            else
+            {
+                cout << "error";
+            }
+        }
+        while (fabs((xr-xl)/xm) > tolerance);
+        x0 = (xr+xl)/2;
+        cout << x0;
+    }
+    return 0;
+}
