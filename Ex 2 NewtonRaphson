@@ -25,13 +25,11 @@ int main()
     {
         xi2 = xi - (function(xi)/derivativefunction(xi));
         error = fabs((xi2-xi)/xi2);
-        tmp = xi;
-        tmp2 = xi2;
-        xi2 = xi;
-        cout << tmp2;
+        tmp = xi2;
+        xi = xi2;
     }
-    while (error <= tolerance);
+    while (error > tolerance);
 
-    cout << tmp2;
+    cout << tmp;
     return 0;
 }
