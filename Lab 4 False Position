@@ -1,0 +1,59 @@
+#include <iostream>
+#include <math.h>
+#include <iomanip>
+
+using namespace std;
+
+double function(double x)
+{
+    return cos(x) - x;
+}
+
+int main()
+{
+    long double error, tol, x0, xl, xr, tmp;
+    int i=0;
+    xl = 0;
+    xr = 1;
+    tol = 0,00000001;
+    x0 = (xl*function(xr) - xr*function(xl)) / (function(xr) - function(xl));
+    if (function(xl) * function(x0) < 0)
+        {
+            xr = x0;
+        }
+        else if (function(x0) * function(xr) < 0)
+        {
+            xl = x0;
+        }
+        else
+        {
+            cout << "error";
+        }
+    do
+    {
+        tmp = x0;
+        i++;
+        cout<<"ITERATION NUMBER "<<i<<endl;
+        x0 = (xl*function(xr) - xr*function(xl)) / (function(xr) - function(xl));
+        cout << "x0= " << x0 << endl;
+
+        if (function(xl) * function(x0) <= 0)
+        {
+            xr = x0;
+        }
+        else if (function(x0) * function(xr) < 0)
+        {
+            xl = x0;
+        }
+        else
+        {
+            cout << "Wrong cout" << endl;
+        }
+        error = fabs((x0-tmp)/x0);
+        cout << "error= " << error << endl;
+    }
+    while (error > tol);
+    cout << x0 << endl;
+
+    return 0;
+}
