@@ -32,12 +32,29 @@ double secondCD(double x, double h)
 int main()
 {
     int a=2;
-    int i;
-    cout << "dzień dobry";
-    for(i=0.05; i<0.50; i+=0.05)
+    double i;
+    cout << "First FD:" << endl;
+    for(i=0.50; i>0.05; i-=0.05)
     {
-        cout << firstFD(a,i);
+        cout << firstFD(a,i) << endl;
     }
 
+    cout << "First CD:" << endl;
+    for(i=0.50; i>0.05; i-=0.05)
+    {
+        cout << firstCD(a,i) << endl;
+    }
+
+    cout << "Second FD:" << endl;
+    for(i=0.50; i>0.05; i-=0.05)
+    {
+        cout << secondFD(a,i) << endl;
+    }
+
+        cout << "Second CD:" << endl;
+    for(i=0.50; i>0.05; i-=0.05)
+    {
+        cout << secondCD(a,i) << endl;
+    }
     return 0;
 }
