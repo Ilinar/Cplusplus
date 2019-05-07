@@ -1,0 +1,43 @@
+#include <iostream>
+#include <math.h>
+#include <iomanip>
+
+using namespace std;
+
+double function(double x)
+{
+    return x*exp(x);
+}
+
+double firstFD(double x, double h)
+{
+    return ((function(x+h)-function(x))/h);
+}
+
+double firstCD(double x, double h)
+{
+    return ((function(x+h)-function(x-h))/(2*h));
+}
+
+double secondFD(double x, double h)
+{
+    return ((function(x)-2*function(x+h)+function(x+2*h))/(h*h));
+}
+
+double secondCD(double x, double h)
+{
+    return ((function(x+h)-2*function(x)+function(x-h))/(h*h));
+}
+
+int main()
+{
+    int a=2;
+    int i;
+    cout << "dzień dobry";
+    for(i=0.05; i<0.50; i+=0.05)
+    {
+        cout << firstFD(a,i);
+    }
+
+    return 0;
+}
