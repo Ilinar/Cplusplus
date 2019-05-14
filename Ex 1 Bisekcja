@@ -1,6 +1,7 @@
 #include <iostream>
 #include <math.h>
 #include <iomanip>
+#include <cstdlib>
 
 using namespace std;
 
@@ -11,8 +12,8 @@ double function(double x)
 
 int main()
 {
-    double xl, xr, xm, x0, tolerance;
-    tolerance = 0,00000001;
+    double xl, xr, xm, x0, error, tollerance;
+    tollerance = 0.00000001;
 
     cout << "X left = ";
     cin >> xl;
@@ -29,25 +30,25 @@ int main()
         do
         {
             xm = (xl + xr)/2;
-            cout << "1";
+            error = fabs((xr-xl)/xm);
+            cout << "Interpolacja " << endl;
             if (function(xl) * function(xm) < 0)
             {
                 xr = xm;
-                cout << "2";
             }
             else if (function(xm) * function(xr) < 0)
             {
                 xl = xm;
-                cout << "3";
             }
             else
             {
                 cout << "error";
+                system("pause");
             }
         }
-        while (fabs((xr-xl)/xm) > tolerance);
+        while (error > tollerance);
         x0 = (xr+xl)/2;
-        cout << x0;
+        cout << "Wynik: " << x0;
     }
     return 0;
 }
