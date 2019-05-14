@@ -15,7 +15,7 @@ int main()
     int i=0;
     xl = 0;
     xr = 1;
-    tol = 0,00000001;
+    tol = 0.00000001;
     x0 = (xl*function(xr) - xr*function(xl)) / (function(xr) - function(xl));
     if (function(xl) * function(x0) < 0)
         {
